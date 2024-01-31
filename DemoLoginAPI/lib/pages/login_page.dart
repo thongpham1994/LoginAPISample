@@ -49,9 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Theme.of(context).primaryColor,
                     boxShadow: [
                       BoxShadow(
-                          color: Theme.of(context).hintColor.withOpacity(0.2),
-                          offset: Offset(0, 10),
-                          blurRadius: 20)
+                          color: Theme.of(context).hintColor.withOpacity(0.2), offset: Offset(0, 10), blurRadius: 20)
                     ],
                   ),
                   child: Form(
@@ -67,18 +65,14 @@ class _LoginPageState extends State<LoginPage> {
                         new TextFormField(
                           keyboardType: TextInputType.emailAddress,
                           onSaved: (input) => loginRequestModel?.Username = input,
-                          validator: (input) => (input ?? '').trim().contains('@')
-                              ? "Email Id should be valid"
-                              : null,
+                          validator: (input) => (input ?? '').trim().contains('@') ? "Email Id should be valid" : null,
                           decoration: new InputDecoration(
                             hintText: "Email Address",
                             enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.secondary
-                                        .withOpacity(0.2))),
+                                borderSide:
+                                    BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.2))),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.secondary)),
+                                borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary)),
                             prefixIcon: Icon(
                               Icons.email,
                               color: Theme.of(context).colorScheme.secondary,
@@ -87,25 +81,19 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         SizedBox(height: 20),
                         new TextFormField(
-                          style:
-                          TextStyle(color: Theme.of(context).colorScheme.secondary),
+                          style: TextStyle(color: Theme.of(context).colorScheme.secondary),
                           keyboardType: TextInputType.text,
-                          onSaved: (input) =>
-                          loginRequestModel?.Password = input,
-                          validator: (input) => (input ?? '').trim().length < 3
-                              ? "Password should be more than 3 characters"
-                              : null,
+                          onSaved: (input) => loginRequestModel?.Password = input,
+                          validator: (input) =>
+                              (input ?? '').trim().length < 3 ? "Password should be more than 3 characters" : null,
                           obscureText: hidePassword,
                           decoration: new InputDecoration(
                             hintText: "Password",
                             enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context)
-                                        .colorScheme.secondary
-                                        .withOpacity(0.2))),
+                                borderSide:
+                                    BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.2))),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.secondary)),
+                                borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary)),
                             prefixIcon: Icon(
                               Icons.lock,
                               color: Theme.of(context).colorScheme.secondary,
@@ -116,12 +104,8 @@ class _LoginPageState extends State<LoginPage> {
                                   hidePassword = !hidePassword;
                                 });
                               },
-                              color: Theme.of(context)
-                                  .colorScheme.secondary
-                                  .withOpacity(0.4),
-                              icon: Icon(hidePassword
-                                  ? Icons.visibility_off
-                                  : Icons.visibility),
+                              color: Theme.of(context).colorScheme.secondary.withOpacity(0.4),
+                              icon: Icon(hidePassword ? Icons.visibility_off : Icons.visibility),
                             ),
                           ),
                         ),
@@ -146,17 +130,15 @@ class _LoginPageState extends State<LoginPage> {
                                 });
 
                                 if (value.is_success == true) {
-                                  final snackBar = SnackBar(
-                                      content: Text("Login Successful"));
+                                  final snackBar = SnackBar(content: Text("Login Successful"));
                                   Fluttertoast.showToast(
-                                      msg: "This is Center Short Toast",
+                                      msg: value.data!.name,
                                       toastLength: Toast.LENGTH_SHORT,
                                       gravity: ToastGravity.BOTTOM,
                                       timeInSecForIosWeb: 1,
                                       backgroundColor: Colors.red,
                                       textColor: Colors.white,
-                                      fontSize: 16.0
-                                  );
+                                      fontSize: 16.0);
                                 } else {
                                   // final snackBar =
                                   // SnackBar(content: Text(value.err_msg));
@@ -168,7 +150,6 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           child: const Text('Login'),
                         ),
-
                         SizedBox(height: 15),
                       ],
                     ),
